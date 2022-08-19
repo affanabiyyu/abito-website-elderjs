@@ -44,9 +44,22 @@
       console.log('Layout.svelte > Component Mount Detail', e.detail);
     });
   </script>
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </svelte:head>
 
 <div class="container">
   {@html templateHtml}
 </div>
 <div class="footer">Built with ❤ and <a href="https://elderguide.com/tech/elderjs/">Elder.js</a></div>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
