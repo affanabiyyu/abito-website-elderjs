@@ -2,6 +2,7 @@
   import HookDetail from '../../components/HookDetail.svelte';
   import BlogTeaser from '../../components/BlogTeaser.svelte';
   import Clock from '../../components/Clock.svelte';
+  import { onMount } from "svelte";
   export let data, helpers, settings;
 
   // add permalinks to the hook list so we can link to the posts.
@@ -9,6 +10,18 @@
     ...hook,
     link: helpers.permalinks.hooks({ slug: hook.hook.toLocaleLowerCase() }),
   }));
+
+  onMount(async () => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  });
 </script>
 
 <style>
@@ -69,6 +82,7 @@
   <title>Elder.js Template: Home</title>
   <meta name="description" content="Elder.js Starter Template: It's A Tutorial Too!" />
   <link href="{settings.origin}/" rel="canonical" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </svelte:head>
 
 {#if data.testingHooks}

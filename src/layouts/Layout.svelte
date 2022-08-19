@@ -1,5 +1,6 @@
 <script>
   import style from '../../assets/style.css';
+  
   export let templateHtml, settings;
 </script>
 
@@ -22,7 +23,7 @@
     background: #06395a;
     padding-top: 2rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+    'Helvetica Neue', sans-serif;
     color: #f4f7fb;
     text-align: center;
     font-size: 14px;
@@ -51,15 +52,3 @@
   {@html templateHtml}
 </div>
 <div class="footer">Built with ❤ and <a href="https://elderguide.com/tech/elderjs/">Elder.js</a></div>
-
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
