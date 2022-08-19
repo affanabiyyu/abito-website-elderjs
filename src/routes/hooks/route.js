@@ -19,6 +19,6 @@ module.exports = {
     const hook = hookInterface.find((hookDetails) => hookDetails.hook.toLocaleLowerCase() === slug);
 
     // This object returned will be available in the `Hooks.svelte` template by using "export let data;"
-    return { hook, hookEntityDefinitions, affan };
+    return { hook, hookEntityDefinitions };
   },
 };
