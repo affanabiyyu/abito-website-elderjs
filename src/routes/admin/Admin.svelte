@@ -4,7 +4,7 @@
   <title>Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <!-- Note the "type" and "rel" attribute values, which are required. -->
-  <link href="src/config.yml" type="text/yaml" rel="cms-config-url">
+  <link href="admin/config.yml" type="text/yaml" rel="cms-config-url">
 </svelte:head>
 
 <body>
