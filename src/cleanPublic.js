@@ -5,7 +5,7 @@ const { getConfig } = require('@elderjs/elderjs');
 const { distDir } = getConfig();
 
 const direction = (path.join(distDir, '*'));
-const directionException = "!".concat(path.join(distDir, 'admin/config.yml'));
+const directionException = "!".concat(path.join(distDir, 'admin'));
 console.log(' Clearing out public folder.');
 del.sync([direction, directionException]);
 
